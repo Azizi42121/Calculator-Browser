@@ -1,0 +1,44 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+    border: 1px solid ;
+    border-radius: 10px;
+    width: 220px;
+    height: 50px;
+    margin: 2px auto;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+    gap: 5px;
+    transform: translateY(50%);
+}
+
+.normal {
+    padding: 20px;
+}
+
+.minus{
+    padding: 20px 22px 20px 21px;
+}
+
+.erase{
+    padding: 20px 16px 20px 15px;
+}
+
+.zero{
+    padding: 20px 48px 20px 48px;
+}
+
+.equal{
+    padding: 20px 20px 20px 19px;
+}
