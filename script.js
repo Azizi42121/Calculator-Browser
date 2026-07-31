@@ -7,13 +7,18 @@ document.addEventListener("DOMContentLoaded", function(){
     const tombol_hasil = document.getElementById('btnHasil')
 
     // variabel kosong
-    let angkaSimpan1 = ""
+    let angkaSimpan1 = "";
     let operator_terpilih = "";
+    let angkaSimpan2 = "";
+    let operatorDone = false;
+
+    // fungsi untuk 
 
     // event saat mengklik tombol angkaq
     tombol_angka.forEach(tombol => {
         tombol.addEventListener('click', function(){
             let teks = this.innerText;
+            operatorDone = false;
             switch (teks) {
                 case "1":
                     display_angka.innerText += "1";
@@ -83,6 +88,8 @@ document.addEventListener("DOMContentLoaded", function(){
     tombol_operator.forEach(tombol => {
         tombol.addEventListener("click", function(){
             let operator = tombol.innerText
+            angkaSimpan1 = display_angka.innerText
+            operatorDone = true
             switch (operator) {
                 case "&times;":
                     operator_terpilih = "*"
@@ -105,6 +112,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // event ketika mengklik tombol equal
     tombol_hasil.addEventListener("click",function(){
-        console.log(angkaSimpan1)
+        
     })
 })
