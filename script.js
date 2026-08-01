@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", function(){
     const tombol_hapus = document.getElementById('btnHapus');
     const tombol_operator = document.querySelectorAll('.btnOperator');
     const tombol_hasil = document.getElementById('btnHasil')
+    const tombol_clear = document.getElementById('clear')
 
     // variabel kosong
-    let angkaSimpan = [[]];
+    let dataAngka = [[]];
     let operator_terpilih = [];
     let operatorDone = true;
 
@@ -30,47 +31,47 @@ document.addEventListener("DOMContentLoaded", function(){
             switch (teks) {
                 case "1":
                     display_angka.innerText += "1";
-                    inputNUM("1",angkaSimpan)
+                    inputNUM("1",dataAngka)
                     break;
 
                 case "2":
                     display_angka.innerText += "2";
-                    inputNUM("2",angkaSimpan)
+                    inputNUM("2",dataAngka)
                     break;
 
                 case "3":
                     display_angka.innerText += "3";
-                    inputNUM("3",angkaSimpan)
+                    inputNUM("3",dataAngka)
                     break;
 
                 case "4":
                     display_angka.innerText += "4";
-                    inputNUM("4",angkaSimpan)
+                    inputNUM("4",dataAngka)
                     break;
 
                 case "5":
                     display_angka.innerText += "5";
-                    inputNUM("5",angkaSimpan)
+                    inputNUM("5",dataAngka)
                     break;
 
                 case "6":
                     display_angka.innerText += "6";
-                    inputNUM("6",angkaSimpan)
+                    inputNUM("6",dataAngka)
                     break;
                 
                 case "7":
                     display_angka.innerText += "7";
-                    inputNUM("7",angkaSimpan)
+                    inputNUM("7",dataAngka)
                     break;
                 
                 case "8":
                     display_angka.innerText += "8";
-                    inputNUM("8",angkaSimpan)
+                    inputNUM("8",dataAngka)
                     break;
 
                 case "9":
                     display_angka.innerText += "9";
-                    inputNUM("9",angkaSimpan)
+                    inputNUM("9",dataAngka)
                     break;
 
                 case "0":
@@ -78,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function(){
                         alert('jangan mengawali dengan angka 0')
                     } else {
                         display_angka.innerText += "0";
-                        inputNUM("0",angkaSimpan)
+                        inputNUM("0",dataAngka)
                     }
                     break;
             }
@@ -98,20 +99,20 @@ document.addEventListener("DOMContentLoaded", function(){
             let operator = tombol.innerText
             switch (operator) {
                 case "&times;":
-                    inputOP(angkaSimpan,operator_terpilih,"*")
+                    inputOP(dataAngka,operator_terpilih,"*")
                     break;
                     
                     
                 case "+":
-                    inputOP(angkaSimpan,operator_terpilih,"+")
+                    inputOP(dataAngka,operator_terpilih,"+")
                     break;
 
                 case "÷":
-                    inputOP(angkaSimpan,operator_terpilih,"/")
+                    inputOP(dataAngka,operator_terpilih,"/")
                     break;
 
                 case "-":
-                     inputOP(angkaSimpan,operator_terpilih,"-")
+                     inputOP(dataAngka,operator_terpilih,"-")
                     break;
             }
         })
@@ -119,7 +120,18 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // event ketika mengklik tombol equal
     tombol_hasil.addEventListener("click",function(){
-        console.log(operator_terpilih)
-        console.table(angkaSimpan)
+        let angkaTersimpan = []
+        dataAngka.forEach((bilangan) => {
+            bilanganAkhir = bilangan.join("");
+            angkaTersimpan.push(bilanganAkhir)
+        })
+        
+        let ekspresi = `${angkaTersimpan[0]}`
+        for (let i = 0; i < operator_terpilih.length; i++) {
+            ekspresi += `${operator_terpilih[i]} ${angkaTersimpan[i + 1]}`
+        }
+
+        let hasilAkhir = eval(ekspresi);
+        display_angka.innerText = hasilAkhir
     })
 })
