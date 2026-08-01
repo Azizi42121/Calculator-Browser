@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function(){
     tombol_hasil.addEventListener("click",function(){
         let angkaTersimpan = []
         dataAngka.forEach((bilangan) => {
-            bilanganAkhir = bilangan.join("");
+            bilanganAkhir = Number(bilangan.join(""));
             angkaTersimpan.push(bilanganAkhir)
         })
         
