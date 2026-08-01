@@ -98,21 +98,25 @@ document.addEventListener("DOMContentLoaded", function(){
         tombol.addEventListener("click", function(){
             let operator = tombol.innerText
             switch (operator) {
-                case "&times;":
+                case "×":
+                    display_angka.innerText += "×"
                     inputOP(dataAngka,operator_terpilih,"*")
                     break;
                     
                     
                 case "+":
+                    display_angka.innerText += "+"
                     inputOP(dataAngka,operator_terpilih,"+")
                     break;
 
                 case "÷":
+                    display_angka.innerText += "÷"
                     inputOP(dataAngka,operator_terpilih,"/")
                     break;
 
                 case "-":
-                     inputOP(dataAngka,operator_terpilih,"-")
+                    display_angka.innerText += "-"
+                    inputOP(dataAngka,operator_terpilih,"-")
                     break;
             }
         })
@@ -126,12 +130,12 @@ document.addEventListener("DOMContentLoaded", function(){
             angkaTersimpan.push(bilanganAkhir)
         })
         
-        let ekspresi = `${angkaTersimpan[0]}`
-        for (let i = 0; i < operator_terpilih.length; i++) {
-            ekspresi += `${operator_terpilih[i]} ${angkaTersimpan[i + 1]}`
-        }
+        let ekspresi = angkaTersimpan.reduce((rumus,num,index) => {
+            const op = operator_terpilih[index - 1];
+            return `${rumus} ${op} ${num}`;
+        })
 
         let hasilAkhir = eval(ekspresi);
-        display_angka.innerText = hasilAkhir
+        display_angka.textContent = hasilAkhir
     })
 })
