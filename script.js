@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // variabel kosong
     let angkaSimpan = [[]];
-    let operator_terpilih = "";
+    let operator_terpilih = [];
     let operatorDone = true;
 
     // fungsi untuk memisahkan bilangan 1 dan bilangan 2
@@ -17,8 +17,10 @@ document.addEventListener("DOMContentLoaded", function(){
         return save[indexAkhir].push(value)
     }
 
-    function inputOP(save) {
-        return save.push([])
+    function inputOP(save,operan,option) {
+        save.push([]);
+        operan.push(option);
+        return save,operan
     }
 
     // event saat mengklik tombol angkaq
@@ -94,22 +96,22 @@ document.addEventListener("DOMContentLoaded", function(){
     tombol_operator.forEach(tombol => {
         tombol.addEventListener("click", function(){
             let operator = tombol.innerText
-            inputOP(angkaSimpan)
             switch (operator) {
                 case "&times;":
-                    operator_terpilih = "*"
+                    inputOP(angkaSimpan,operator_terpilih,"*")
                     break;
-                
+                    
+                    
                 case "+":
-                    operator_terpilih = "+"
+                    inputOP(angkaSimpan,operator_terpilih,"+")
                     break;
 
                 case "÷":
-                    operator_terpilih = "/"
+                    inputOP(angkaSimpan,operator_terpilih,"/")
                     break;
 
                 case "-":
-                    operator_terpilih = "-"
+                     inputOP(angkaSimpan,operator_terpilih,"-")
                     break;
             }
         })
@@ -117,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // event ketika mengklik tombol equal
     tombol_hasil.addEventListener("click",function(){
+        console.log(operator_terpilih)
         console.table(angkaSimpan)
     })
 })
