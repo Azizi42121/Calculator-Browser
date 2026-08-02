@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // variabel kosong
   let dataAngka = [[]];
   let operator_terpilih = [];
-  let operatorDone = true;
 
   // fungsi untuk memisahkan bilangan 1 dan bilangan 2
   function inputNUM(value, save) {
