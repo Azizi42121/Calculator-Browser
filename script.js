@@ -45,8 +45,25 @@ document.addEventListener("DOMContentLoaded", function () {
   // event saat mengklik tombol hapus
   tombol_hapus.addEventListener("click", function () {
     let tekslama = display_angka.innerText;
-    let teksbaru = tekslama.slice(0, -1);
-    display_angka.innerText = teksbaru;
+
+    if (tekslama.trim() === "") return;
+
+    if (tekslama.endsWith(" ")) {
+        display_angka.innerText = tekslama.slice(0,-3)
+    } else {
+        display_angka.innerText = tekslama.slice(0,-1)
+    }
+
+    let indexAkhir = dataAngka.length - 1
+
+    if (dataAngka[indexAkhir].length > 0) {
+        dataAngka[indexAkhir].pop()
+    }
+
+    if (dataAngka[indexAkhir].length === 0 && dataAngka.length > 1) {
+        dataAngka.pop()
+        operator_terpilih.pop()
+    }
   });
 
   // event saat mengklik tombol operator
