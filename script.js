@@ -109,4 +109,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let hasilAkhir = eval(ekspresi);
     display_angka.textContent = hasilAkhir;
   });
+
+  // event ketika menklik tombol clear
+  tombol_clear.addEventListener("click",function(){
+    display_angka.innerText = ""
+    operator_terpilih = []
+    dataAngka = [[]]
+  })
 });
