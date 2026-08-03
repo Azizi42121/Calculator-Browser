@@ -72,22 +72,22 @@ document.addEventListener("DOMContentLoaded", function () {
       let operator = tombol.innerText;
       switch (operator) {
         case "×":
-          display_angka.innerText += " × ";
+          display_op.textContent = " × ";
           inputOP(dataAngka, operator_terpilih, "*");
           break;
 
         case "+":
-          display_angka.innerText += " + ";
+          display_op.textContent = " + ";
           inputOP(dataAngka, operator_terpilih, "+");
           break;
 
         case "÷":
-          display_angka.innerText += " ÷ ";
+          display_op.textContent = " ÷ ";
           inputOP(dataAngka, operator_terpilih, "/");
           break;
 
         case "-":
-          display_angka.innerText += " - ";
+          display_op.textContent = " - ";
           inputOP(dataAngka, operator_terpilih, "-");
           break;
       }
