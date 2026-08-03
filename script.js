@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Ambil elemen DOM
   const tombol_angka = document.querySelectorAll(".btnNumber");
-  const display_angka = document.getElementById("display");
+  const display_angka = document.getElementById("display-angka");
+  const display_op = document.getElementById("display-op");
   const tombol_hapus = document.getElementById("btnHapus");
   const tombol_operator = document.querySelectorAll(".btnOperator");
   const tombol_hasil = document.getElementById("btnHasil");
