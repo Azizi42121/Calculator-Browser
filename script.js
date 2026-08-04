@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // variabel kosong
   let dataAngka = [[]];
   let operator_terpilih = [];
+  let operatorDone = false;
 
   // fungsi untuk memisahkan bilangan 1 dan bilangan 2
   function inputNUM(value, save) {
@@ -25,10 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // event saat mengklik tombol angkaq
+  // event saat mengklik tombol angka
   tombol_angka.forEach((tombol) => {
     tombol.addEventListener("click", function () {
       let teks = this.innerText;
+
+      if (operatorDone === true) {
+        display_angka.innerText = "";
+      }
 
       if (teks === "0") {
         if (display_angka.trim === "") {
@@ -38,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       display_angka.innerText += teks;
+      operatorDone = false;
       inputNUM(teks,dataAngka)
     });
   });
@@ -70,6 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   tombol_operator.forEach((tombol) => {
     tombol.addEventListener("click", function () {
       let operator = tombol.innerText;
+      operatorDone = true;
       switch (operator) {
         case "×":
           display_op.textContent = " × ";
