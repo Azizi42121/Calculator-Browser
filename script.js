@@ -109,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let hasilAkhir = eval(ekspresi);
     display_angka.textContent = hasilAkhir;
+    display_op.textContent = "=";
   });
 
   // event ketika menklik tombol clear
