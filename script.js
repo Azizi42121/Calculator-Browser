@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // event ketika menklik tombol clear
   tombol_clear.addEventListener("click",function(){
     display_angka.innerText = ""
+    display_op.innerText = ""
     operator_terpilih = []
     dataAngka = [[]]
   })
